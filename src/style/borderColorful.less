@@ -1,0 +1,84 @@
+.my-colorful-border-treaming {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    &::before {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        padding: 0 10px;
+        background-color: #25252b;
+        border-radius: inherit;
+        content: attr(data-content);
+        z-index: 2;
+        color: #fff;
+        box-sizing: border-box;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    &::after {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 300%;
+        height: 300%;
+        background-color: antiquewhite;
+        border-radius: inherit;
+        background-image: conic-gradient(#EEEEEE22, #fc97e9, #f0c237, #EEEEEE22 60%);
+        animation: rotate 5s linear infinite;
+        z-index: 1;
+        content: '';
+    }
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.my-colorful-border-123 {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background: repeating-conic-gradient(from var(--a),#ff2770 0, #45f3ff 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    animation: rotateAngle 4s linear infinite;
+    // 如果盒子是正方形，放开注释四个角效果
+    // &::before {
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     border-radius: inherit;
+    //     background: repeating-conic-gradient(from var(--a),#45f3ff 0, #ff2770 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+    //     animation: rotateAngle 4s linear -3s infinite;
+    //     z-index: 0;
+    //     content: '';
+    // }
+    &::after {
+        position: absolute;
+        inset: 4px;
+        border-radius: 15px;
+        background-color: #2d2d39;
+        border: 8px solid #25252b;
+        z-index: 0;
+        content: '';
+    }
+}
+@property --a {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes rotateAngle {
+    0% {
+        --a: 0deg
+    }
+    100% {
+        --a: 360deg
+    }
+}
